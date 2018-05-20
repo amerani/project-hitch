@@ -1,6 +1,6 @@
 [submodule "hitch-api"]
 	path = hitch-api
-	url = git@github.com:hex10/hitch-api.git
+	url = git@github.com:amerani/hitch-api.git
 [submodule "hitch-web"]
 	path = hitch-web
-	url = git@github.com:hex10/hitch-web.git
+	url = git@github.com:amerani/hitch-web.git
