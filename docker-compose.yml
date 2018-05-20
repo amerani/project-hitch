@@ -1,0 +1,46 @@
+version: '3.1'
+
+services:
+  web:
+    container_name: hitch-web
+    image: node
+    restart: always
+    build: ./hitch-web
+    command: bash -c "npm install -g yarn && yarn install && yarn run dev"
+    working_dir: /home/node/app
+    volumes:
+      - ./hitch-web:/home/node/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+      - db
+
+  api:
+    container_name: hitch-api
+    image: node
+    restart: always
+    build: ./hitch-api
+    command: bash -c "npm install -g yarn && yarn install && yarn run watch-server"
+    working_dir: /home/node/app
+    volumes:
+      - ./hitch-api:/home/node/app
+    ports:
+      - $API_PORT:$API_PORT
+    depends_on:
+      - db
+
+  db:
+    container_name: hitch-pg
+    image: postgres
+    restart: always
+    ports:
+      - 5432:$PG_PORT
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment: 
+      - POSTGRES_DB=hitch_app
+      - POSTGRES_USER=postgres
+
+volumes:
+  pgdata:
