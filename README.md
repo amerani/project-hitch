@@ -32,6 +32,7 @@ PG_PORT=5432
 PG_USERNAME=postgres
 PG_DATABASE=hitch_app
 API_PORT=8080
+JWT_SECRET=keep_this_secret
 ```
 
 `docker-compose up`
