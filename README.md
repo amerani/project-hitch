@@ -3,7 +3,7 @@
 This repository consists of git submodules for various components of the project that are in their own repos, and tooling required to develop locally and deploy to production.
 
 ## Manage changesets
----
+
 #### Setup local copy
 
 `git clone --recurse-submodules git@github.com:amerani/project-hitch.git`
@@ -23,8 +23,8 @@ This repository consists of git submodules for various components of the project
 `git submodule update --remote --rebase`
 
 ## Bootstrap development environment
----
-`.env`
+
+`.env hitch-api/.env hitch-web/.env`
 
 ```
 PG_HOST=db
